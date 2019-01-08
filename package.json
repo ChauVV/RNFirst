@@ -10,7 +10,7 @@
     "validate": "npm ls",
     "reset": "rm -rf ./node_modules && rm -rf $TMPDIR/react-* && rm -rf ./ios/build && yarn cache clean && npm install",
     "and": "react-native run-android",
-    "ios": "react-native run-ios --simulator=\"iPhone X\"",
+    "ios": "react-native run-ios --simulator=\"iPhone 6\"",
     "ipad": "react-native run-ios --simulator=\"iPad Air 2\"",
     "fix": "cd node_modules/react-native/third-party/glog-*&&../../scripts/ios-configure-glog.sh"
   },
