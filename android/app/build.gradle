@@ -97,15 +97,6 @@ android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
-    signingConfigs {
-        release {
-            storeFile file('keystore')
-            storePassword '123123'
-            keyAlias 'keystore'
-            keyPassword '123123'
-        }
-    }
-
     defaultConfig {
         applicationId "com.rnfirst"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -127,7 +118,6 @@ android {
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
-            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }

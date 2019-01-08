@@ -15,6 +15,15 @@ import { connect } from 'react-redux'
 import { RouteKey } from 'utils/globalConstants'
 import transition from './transitions'
 
+import SharedElements from 'frontend/Screens/Examples/SharedElements'
+import AppearingElements from 'frontend/Screens/Examples/AppearingElements'
+import ImageTransition from 'frontend/Screens/Examples/ImageTransition'
+import LayoutTransition from 'frontend/Screens/Examples/LayoutTransition'
+import Onboarding from 'frontend/Screens/Examples/Onboarding'
+import ShoeShop from 'frontend/Screens/Examples/ShoeShop'
+import FlatList from 'frontend/Screens/Examples/FlatList'
+import AnimatedProperty from 'frontend/Screens/Examples/AnimatedProperty'
+
 const middlewareNav = createReactNavigationReduxMiddleware(
   'root',
   (state) => state.navigate
@@ -29,11 +38,24 @@ const HomeStack = createStackNavigator(
     transitionConfig: transition
   }
 )
-
+const SettingStack = createStackNavigator({
+  setting: { screen: Setting },
+  shared: { screen: SharedElements },
+  appear: { screen: AppearingElements },
+  image: { screen: ImageTransition },
+  layout: { screen: LayoutTransition },
+  onboarding: { screen: Onboarding },
+  shoes: { screen: ShoeShop },
+  flatlist: { screen: FlatList },
+  animatedProperty: { screen: AnimatedProperty }
+}, {
+  headerMode: 'none'
+}
+)
 const MainTabbar = createBottomTabNavigator(
   {
     Home: HomeStack,
-    Settings: { screen: Setting }
+    Settings: SettingStack
   },
   {
     navigationOptions: ({ navigation }) => ({

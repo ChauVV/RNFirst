@@ -17,6 +17,9 @@
   "dependencies": {
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
+    "lodash.chunk": "^4.2.0",
+    "lodash.clamp": "4.0.3",
+    "lodash.sortby": "^4.7.0",
     "prop-types": "^15.6.2",
     "react": "16.6.3",
     "react-native": "0.57.8",
@@ -26,6 +29,7 @@
     "react-native-splash-screen": "^3.1.1",
     "react-native-vector-icons": "^6.0.2",
     "react-navigation": "^2.11.2",
+    "react-navigation-fluid-transitions": "^0.2.74",
     "react-navigation-redux-helpers": "^2.0.5",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
