@@ -3,7 +3,7 @@ import Detail from 'frontend/Screens/Detail'
 import DrawerContent from 'frontend/Screens/DrawerContent'
 import HomeScreen from 'frontend/Screens/HomeScreen'
 import LoginScreen from 'frontend/Screens/LoginScreen'
-import Setting from 'frontend/Screens/Setting/'
+import Setting from 'frontend/Screens/Setting'
 import React from 'react'
 import Icon from 'react-native-vector-icons/Ionicons'
 import { createBottomTabNavigator, createDrawerNavigator, createStackNavigator } from 'react-navigation'
@@ -23,6 +23,7 @@ import Onboarding from 'frontend/Screens/Examples/Onboarding'
 import ShoeShop from 'frontend/Screens/Examples/ShoeShop'
 import FlatList from 'frontend/Screens/Examples/FlatList'
 import AnimatedProperty from 'frontend/Screens/Examples/AnimatedProperty'
+import Examples from 'frontend/Screens/Examples'
 
 const middlewareNav = createReactNavigationReduxMiddleware(
   'root',
@@ -38,24 +39,11 @@ const HomeStack = createStackNavigator(
     transitionConfig: transition
   }
 )
-const SettingStack = createStackNavigator({
-  setting: { screen: Setting },
-  shared: { screen: SharedElements },
-  appear: { screen: AppearingElements },
-  image: { screen: ImageTransition },
-  layout: { screen: LayoutTransition },
-  onboarding: { screen: Onboarding },
-  shoes: { screen: ShoeShop },
-  flatlist: { screen: FlatList },
-  animatedProperty: { screen: AnimatedProperty }
-}, {
-  headerMode: 'none'
-}
-)
+
 const MainTabbar = createBottomTabNavigator(
   {
     Home: HomeStack,
-    Settings: SettingStack
+    Settings: Setting
   },
   {
     navigationOptions: ({ navigation }) => ({
@@ -112,6 +100,21 @@ const Drawer = createDrawerNavigator(
     drawerWidth: 300
   }
 )
+
+const AnimaTranslationStack = createStackNavigator({
+  Examples: { screen: Examples },
+  shared: { screen: SharedElements },
+  appear: { screen: AppearingElements },
+  image: { screen: ImageTransition },
+  layout: { screen: LayoutTransition },
+  onboarding: { screen: Onboarding },
+  shoes: { screen: ShoeShop },
+  flatlist: { screen: FlatList },
+  animatedProperty: { screen: AnimatedProperty }
+}, {
+  headerMode: 'none'
+})
+
 const RootNavigator = createStackNavigator(
   {
     Authen: { screen: Authen },
@@ -126,7 +129,8 @@ const RootNavigator = createStackNavigator(
       navigationOptions: {
         gesturesEnabled: false
       }
-    }
+    },
+    AnimaTranslationStack: { screen: AnimaTranslationStack }
   }, {
     headerMode: 'none'
   }
