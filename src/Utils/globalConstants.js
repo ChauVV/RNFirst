@@ -1,3 +1,4 @@
+import { Dimensions, Platform } from 'react-native'
 
 export const BaseURL = 'http://5be31487d53daf0013250efd.mockapi.io/API'
 export const RouteKey = {
@@ -84,4 +85,22 @@ export const statusCode = {
   CODE_201: 201, // ok
   CODE_404: 404, // Not found
   CODE_500: 500 // Server error
+}
+
+export function isIphoneX () {
+  let dimen = Dimensions.get('window')
+  return (
+    Platform.OS === 'ios' &&
+        !Platform.isPad &&
+        !Platform.isTVOS &&
+        (dimen.height === 812 || dimen.width === 812)
+  )
+}
+
+export function ifIphoneX (iphoneXStyle, regularStyle) {
+  if (isIphoneX()) {
+    return iphoneXStyle
+  } else {
+    return regularStyle
+  }
 }

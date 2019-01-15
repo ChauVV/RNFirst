@@ -80,7 +80,8 @@ const getActiveScreen = (navigationState) => {
 MainTabbar.navigationOptions = ({ navigation }) => {
   let drawerLockMode = 'locked-closed'
   const activeRoute = getActiveScreen(navigation.state)
-  if (activeRoute.routeName === RouteKey.HomeScreen || activeRoute.routeName === RouteKey.Settings) { // Only open drawer for 2 these screen
+  if (activeRoute.routeName === RouteKey.HomeScreen || activeRoute.routeName === RouteKey.Settings) {
+    // Only open drawer for 2 these screen
     drawerLockMode = 'unlocked'
   }
   return {
